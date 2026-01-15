@@ -1,0 +1,17 @@
+﻿<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Souhrn</title>
+</head>
+<body>
+  <h1>Souhrn vyplněného formuláře</h1>
+  <ul>
+    <li>Jméno: {{ name }}</li>
+    <li>Email: {{ email }}</li>
+    <li>Věk: {{ age }}</li>
+    <li>Komentář: {{ comment }}</li>
+  </ul>
+  <a href="{{ url_for('page1') }}">Upravit formulář</a>
+</body>
+</html>
