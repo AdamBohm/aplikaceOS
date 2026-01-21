@@ -2,23 +2,49 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Formulář  Stránka 2</title>
+  <title>Registrace na workshop — Krok 2</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding:24px; }
+    .card { max-width:900px; margin:0 auto; border:1px solid #eee; padding:18px; border-radius:8px; }
+    .tracks { display:flex; gap:12px; flex-wrap:wrap; }
+    .track { flex:1 1 250px; border:1px solid #ddd; padding:12px; border-radius:6px; }
+    .track input { margin-right:8px; }
+    label.block { display:block; margin-top:8px; }
+    .actions { margin-top:16px; text-align:right; }
+    a.back { margin-right:12px; text-decoration:none; color:#666; }
+  </style>
 </head>
 <body>
-  <h1>Formulář  Stránka 2</h1>
-  <form method="post">
-    <div>
-      <label>Věk:<br><input name="age" value="{{ age }}"></label>
-    </div>
-    <div>
-      <label>Komentář:<br><textarea name="comment">{{ comment }}</textarea></label>
-    </div>
-    <div>
-      <button type="submit">Dokončit</button>
-    </div>
-  </form>
-  <form action="{{ url_for('page1') }}" method="get" style="margin-top:10px;">
-    <button type="submit">← Zpět</button>
-  </form>
+  <div class="card">
+    <div class="progress">Krok 2 z 3</div>
+    <h1>Vyber track a úroveň</h1>
+    <form method="post">
+      <div class="tracks">
+        {% for t in tracks %}
+        <div class="track">
+          <label>
+            <input type="radio" name="track" value="{{ t.id }}" {% if t.id == selected_track %}checked{% endif %} required>
+            <strong>{{ t.title }}</strong>
+          </label>
+          <div style="margin-top:6px; color:#555;">{{ t.desc }}</div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <label class="block">Úroveň zkušeností
+        <select name="experience" required>
+          <option value="">-- vyber --</option>
+          <option value="none" {% if experience == 'none' %}selected{% endif %}>Žádné / úplný začátečník</option>
+          <option value="some" {% if experience == 'some' %}selected{% endif %}>Mám základní zkušenosti</option>
+          <option value="pro" {% if experience == 'pro' %}selected{% endif %}>Pokročilý</option>
+        </select>
+      </label>
+
+      <div class="actions">
+        <a class="back" href="{{ url_for('page1') }}">← Zpět</a>
+        <button type="submit">Další →</button>
+      </div>
+    </form>
+  </div>
 </body>
 </html>

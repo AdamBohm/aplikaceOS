@@ -1,4 +1,26 @@
-﻿__pycache__/
+﻿# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# Local env files (store secrets here locally only)
+.env
+env.local
+instance/
+
+# Ignore IDE/editor folders
+.vscode/
+
+# Database files
+*.sqlite3
+
+# Do NOT ignore env.example — it's the template for environment variables
+__pycache__/
 *.pyc
 .env
 .vscode/

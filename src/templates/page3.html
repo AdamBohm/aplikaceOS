@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Registrace na workshop — Krok 3</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding:24px; }
+    .card { max-width:700px; margin:0 auto; border:1px solid #eee; padding:18px; border-radius:8px; }
+    .dates { display:flex; gap:8px; flex-wrap:wrap; }
+    .date { padding:8px 12px; border:1px solid #ddd; border-radius:6px; cursor:pointer; }
+    textarea { width:100%; min-height:100px; margin-top:8px; padding:8px; border-radius:4px; border:1px solid #ccc; }
+    .actions { margin-top:12px; text-align:right; }
+    a.back { margin-right:12px; text-decoration:none; color:#666; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="progress">Krok 3 z 3</div>
+    <h1>Vyber termín a poznámka</h1>
+    <form method="post">
+      <div class="dates" role="list">
+        {% for d in dates %}
+        <label class="date">
+          <input type="radio" name="date" value="{{ d }}" {% if d == date %}checked{% endif %} required> {{ d }}
+        </label>
+        {% endfor %}
+      </div>
+
+      <label style="display:block; margin-top:12px;">Poznámka (dietní požadavky, otázky)
+        <textarea name="notes">{{ notes }}</textarea>
+      </label>
+
+      <div class="actions">
+        <a class="back" href="{{ url_for('page2') }}">← Zpět</a>
+        <button type="submit">Dokončit →</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

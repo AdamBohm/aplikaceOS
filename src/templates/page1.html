@@ -2,20 +2,32 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Formulář — Stránka 1</title>
+  <title>Registrace na workshop — Krok 1</title>
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif; padding: 24px; color:#222; }
+    .card { max-width:700px; margin: 0 auto; border:1px solid #eee; padding:18px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.04); }
+    label { display:block; margin-top:12px; }
+    input[type="text"], input[type="email"] { width:100%; padding:8px; border:1px solid #ccc; border-radius:4px; }
+    .actions { margin-top:18px; text-align:right; }
+    .progress { font-size:14px; color:#666; margin-bottom:8px; }
+    a.back { color:#666; text-decoration:none; margin-right:8px; }
+  </style>
 </head>
 <body>
-  <h1>Formulář — Stránka 1</h1>
-  <form method="post">
-    <div>
-      <label>Jméno:<br><input name="name" value="{{ name }}"></label>
-    </div>
-    <div>
-      <label>Email:<br><input name="email" value="{{ email }}"></label>
-    </div>
-    <div>
-      <button type="submit">Další </button>
-    </div>
-  </form>
+  <div class="card">
+    <div class="progress">Krok 1 z 3</div>
+    <h1>Osobní údaje</h1>
+    <form method="post">
+      <label>Jméno
+        <input type="text" name="name" value="{{ name }}" required>
+      </label>
+      <label>Email
+        <input type="email" name="email" value="{{ email }}" required>
+      </label>
+      <div class="actions">
+        <button type="submit">Další →</button>
+      </div>
+    </form>
+  </div>
 </body>
 </html>

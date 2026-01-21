@@ -2,16 +2,43 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Souhrn</title>
+  <title>Souhrn registrace</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding:24px; }
+    .card { max-width:800px; margin:0 auto; border:1px solid #eee; padding:18px; border-radius:8px; }
+    .row { display:flex; gap:12px; }
+    .box { flex:1; padding:12px; border-radius:6px; border:1px solid #f0f0f0; background:#fafafa; }
+    .actions { margin-top:16px; text-align:right; }
+  </style>
 </head>
 <body>
-  <h1>Souhrn vyplněného formuláře</h1>
-  <ul>
-    <li>Jméno: {{ name }}</li>
-    <li>Email: {{ email }}</li>
-    <li>Věk: {{ age }}</li>
-    <li>Komentář: {{ comment }}</li>
-  </ul>
-  <a href="{{ url_for('page1') }}">Upravit formulář</a>
+  <div class="card">
+    <h1>Souhrn registrace</h1>
+    <div class="row">
+      <div class="box">
+        <strong>Jméno</strong>
+        <div>{{ data.name }}</div>
+        <strong style="margin-top:8px; display:block;">Email</strong>
+        <div>{{ data.email }}</div>
+      </div>
+      <div class="box">
+        <strong>Track</strong>
+        <div>{{ data.track }}</div>
+        <strong style="margin-top:8px; display:block;">Úroveň</strong>
+        <div>{{ data.experience }}</div>
+        <strong style="margin-top:8px; display:block;">Termín</strong>
+        <div>{{ data.date }}</div>
+      </div>
+    </div>
+
+    <div style="margin-top:12px;">
+      <strong>Poznámka</strong>
+      <div style="white-space:pre-wrap; margin-top:6px;">{{ data.notes }}</div>
+    </div>
+
+    <div class="actions">
+      <a href="{{ url_for('page1') }}">Upravit</a>
+    </div>
+  </div>
 </body>
 </html>
