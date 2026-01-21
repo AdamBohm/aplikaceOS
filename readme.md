@@ -12,7 +12,6 @@ Struktura:
 Lokální build & run:
 docker build -t aplikaceos .
 docker run -e FLASK_SECRET="muj-tajny-klic" -p 8080:8080 aplikaceos
-Otevřít: http://localhost:8080/page1
 
 Kubernetes:
 Upravte `k8s/deployment.yaml` s obrazem v registru a použijte:
